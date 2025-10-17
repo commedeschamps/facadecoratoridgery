@@ -1,0 +1,60 @@
+[
+  {
+    "name": "Light",
+    "brightness": 100,
+    "type": "Light",
+    "decorators": [
+      "VoiceControlDecorator",
+      "EnergySavingDecorator",
+      "SchedulerDecorator"
+    ]
+  },
+  {
+    "volume": 100,
+    "name": "MusicSystem",
+    "type": "MusicSystem",
+    "decorators": [
+      "RemoteAccessDecorator"
+    ]
+  },
+  {
+    "name": "Thermostat",
+    "type": "Thermostat",
+    "decorators": [
+      "EnergySavingDecorator"
+    ],
+    "target": 16
+  },
+  {
+    "name": "SecurityCamera",
+    "type": "SecurityCamera",
+    "decorators": [
+      "SecurityLoggerDecorator"
+    ],
+    "armed": true
+  },
+  {
+    "name": "SmartDoor",
+    "type": "SmartDoor",
+    "locked": false,
+    "decorators": [
+      "SecurityLoggerDecorator"
+    ]
+  },
+  {
+    "name": "RobotVacuum",
+    "power": 75,
+    "type": "RobotVacuum",
+    "decorators": [
+      "SecurityLoggerDecorator",
+      "SchedulerDecorator"
+    ]
+  },
+  {
+    "name": "SmartMirror",
+    "type": "SmartMirror",
+    "decorators": [
+      "SecurityLoggerDecorator"
+    ]
+  }
+]
