@@ -1,6 +1,8 @@
 package smarthome.devices;
 
 import java.util.Map;
+//abstraction of Bridge pattern
+//all of the devices are concrete abstractions of this interface
 
 public interface Device {
     void operate();

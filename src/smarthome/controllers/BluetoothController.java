@@ -1,5 +1,5 @@
 package smarthome.controllers;
-
+//concrete implementor in bridge pattern
 public class BluetoothController implements DeviceController {
     @Override
     public void powerOn(String deviceName) {

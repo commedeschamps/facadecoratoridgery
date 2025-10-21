@@ -1,5 +1,5 @@
 package smarthome.controllers;
-
+//concrete implementor
 public class WifiController implements DeviceController {
     @Override
     public void powerOn(String deviceName) {

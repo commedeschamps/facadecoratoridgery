@@ -4,6 +4,7 @@ import smarthome.devices.*;
 import smarthome.decorators.*;
 import smarthome.factory.*;
 import smarthome.facade.HomeAutomationFacade;
+import smarthome.facade.HomeAutomationFacadeBuilder;
 import smarthome.util.StatusExporter;
 import smarthome.util.StatusImporter;
 import java.nio.file.Path;
@@ -69,11 +70,23 @@ public class Main {
         );
 
         System.out.println("\nStep 3: Building Facade with all devices...");
-        HomeAutomationFacade facade = new HomeAutomationFacade(
-            light, music, thermostat, camera, decoratedDevices,
-            door, vacuum, mirror
-        );
-        System.out.println("  Facade created with 7 devices");
+        HomeAutomationFacade facade = new HomeAutomationFacadeBuilder()
+            .withLight(light)
+            .withMusic(music)
+            .withThermostat(thermostat)
+            .withCamera(camera)
+            .withDoor(door)
+            .withVacuum(vacuum)
+            .withMirror(mirror)
+            .addDecoratedDevice(schedLight)
+            .addDecoratedDevice(remoteMusic)
+            .addDecoratedDevice(decoratedThermostat)
+            .addDecoratedDevice(loggedCamera)
+            .addDecoratedDevice(secDoor)
+            .addDecoratedDevice(schedVacuum)
+            .addDecoratedDevice(decoratedMirror)
+            .build();
+        System.out.println("Facade created with all devices using builder pattern.");
 
         System.out.println("\n" + "-".repeat(70));
         System.out.println("DEMONSTRATION: FACADE PATTERN - High-Level Scenarios");
@@ -167,6 +180,7 @@ public class Main {
         System.out.println("=    - Decorator: Voice, Energy, Remote, Scheduler, Logger          =");
         System.out.println("=    - Abstract Factory: WifiDeviceFactory creates device families  =");
         System.out.println("=    - Facade: HomeAutomationFacade orchestrates complex scenes     =");
+        System.out.println("=    - Builder: HomeAutomationFacadeBuilder for fluent construction =");
         System.out.println("=                                                                    =");
         System.out.println("=  Total devices: 7 | Total decorators: 6 | Total scenes: 4         =");
         System.out.println("=  JSON export file: status.json                                     =");
