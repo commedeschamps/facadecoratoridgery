@@ -8,6 +8,7 @@ import smarthome.devices.SmartMirror;
 import smarthome.devices.SmartDoor;
 import smarthome.devices.RobotVacuum;
 
+// factory interface for creating smart home devices
 public interface SmartDeviceFactory {
     Light createLight();
     MusicSystem createMusicSystem();

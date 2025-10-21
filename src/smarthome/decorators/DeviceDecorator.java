@@ -33,7 +33,7 @@ public abstract class DeviceDecorator implements Device {
     @Override
     public Map<String, Object> status() {
         var base = new java.util.HashMap<String,Object>(device.status());
-        java.util.List<String> decorators = new java.util.ArrayList<>();
+        List<String> decorators = new ArrayList<>();
         Object existing = base.get("decorators");
         if (existing instanceof java.util.List<?> raw) {
             for (Object x : raw) decorators.add(String.valueOf(x));

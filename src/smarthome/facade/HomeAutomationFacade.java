@@ -9,6 +9,7 @@ import smarthome.devices.SmartDoor;
 import smarthome.devices.RobotVacuum;
 import smarthome.devices.SmartMirror;
 import java.util.List;
+import static java.util.Objects.requireNonNull;
 
 public class HomeAutomationFacade {
     private static final int PARTY_BRIGHTNESS = 70;
@@ -27,19 +28,15 @@ public class HomeAutomationFacade {
     private final RobotVacuum vacuum;
     private final SmartMirror mirror;
 
-    public HomeAutomationFacade(Light light, MusicSystem music, Thermostat thermostat,
-                                SecurityCamera camera, List<Device> decoratedDevices) {
-        this(light, music, thermostat, camera, decoratedDevices, null, null, null);
-    }
 
-    public HomeAutomationFacade(Light light, MusicSystem music, Thermostat thermostat,
+     HomeAutomationFacade(Light light, MusicSystem music, Thermostat thermostat,
                                 SecurityCamera camera, List<Device> decoratedDevices,
                                 SmartDoor door, RobotVacuum vacuum, SmartMirror mirror) {
-        java.util.Objects.requireNonNull(light, "light");
-        java.util.Objects.requireNonNull(music, "music");
-        java.util.Objects.requireNonNull(thermostat, "thermostat");
-        java.util.Objects.requireNonNull(camera, "camera");
-        java.util.Objects.requireNonNull(decoratedDevices, "decoratedDevices");
+        requireNonNull(light, "light");
+        requireNonNull(music, "music");
+        requireNonNull(thermostat, "thermostat");
+        requireNonNull(camera, "camera");
+        requireNonNull(decoratedDevices, "decoratedDevices");
         this.light = light;
         this.music = music;
         this.thermostat = thermostat;

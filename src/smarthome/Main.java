@@ -37,8 +37,12 @@ public class Main {
         System.out.println("  Created: SmartMirror, SmartDoor, RobotVacuum");
 
         System.out.println("\nStep 2: Wrapping devices with Decorators...");
+
         VoiceControlDecorator voiceLight = new VoiceControlDecorator(light);
-        Device schedLight = new SchedulerDecorator(new EnergySavingDecorator(voiceLight), LocalTime.of(8, 0));
+        EnergySavingDecorator energyLight = new EnergySavingDecorator(voiceLight);
+
+
+        Device schedLight = new SchedulerDecorator(energyLight, LocalTime.of(8, 0));
         System.out.println("  Light: Scheduler -> EnergySaving -> VoiceControl");
 
         RemoteAccessDecorator remoteMusic = new RemoteAccessDecorator(music);
@@ -59,6 +63,7 @@ public class Main {
         Device decoratedMirror = new SecurityLoggerDecorator(mirror);
         System.out.println("  Mirror: SecurityLogger");
 
+        // Collect all decorated devices for JSON export later
         List<Device> decoratedDevices = Arrays.asList(
             schedLight,
             remoteMusic,

@@ -8,7 +8,7 @@ import smarthome.devices.SecurityCamera;
 import smarthome.devices.SmartMirror;
 import smarthome.devices.SmartDoor;
 import smarthome.devices.RobotVacuum;
-
+// concrete factory for creating WiFi-based smart home devices
 public class WifiDeviceFactory implements SmartDeviceFactory {
     private final WifiController controller = new WifiController();
 

@@ -20,7 +20,7 @@ public class StatusImporter {
         Type listType = new TypeToken<List<Map<String, Object>>>(){}.getType();
         List<Map<String, Object>> snapshots = gson.fromJson(json, listType);
 
-        System.out.println("\n📥 Device snapshots imported from: " + path.toAbsolutePath());
+        System.out.println("\n Device snapshots imported from: " + path.toAbsolutePath());
         System.out.println("   Total snapshots: " + snapshots.size());
 
         return snapshots;

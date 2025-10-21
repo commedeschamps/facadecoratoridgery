@@ -8,7 +8,7 @@ import smarthome.devices.SecurityCamera;
 import smarthome.devices.SmartMirror;
 import smarthome.devices.SmartDoor;
 import smarthome.devices.RobotVacuum;
-
+// concrete factory for creating bluetooth-based smart home devices
 public class BluetoothDeviceFactory implements SmartDeviceFactory {
     private final BluetoothController controller = new BluetoothController();
 
