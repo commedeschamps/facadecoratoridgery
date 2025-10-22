@@ -63,7 +63,7 @@ public class Main {
         Device decoratedMirror = new SecurityLoggerDecorator(mirror);
         System.out.println("  Mirror: SecurityLogger");
 
-        // Collect all decorated devices for JSON export later
+        //  collect all decorated devices for JSON export later
         List<Device> decoratedDevices = Arrays.asList(
             schedLight,
             remoteMusic,
@@ -159,6 +159,30 @@ public class Main {
         door.unlock();
 
         System.out.println("\n" + "-".repeat(70));
+        System.out.println("DEMONSTRATION: ADAPTER PATTERN - Legacy Integration");
+        System.out.println("-".repeat(70));
+
+        System.out.println("\nDemo: Using old remote control with modern devices");
+        System.out.println("-".repeat(50));
+        System.out.println("Creating devices through OldRemoteDeviceFactory...");
+
+        SmartDeviceFactory oldRemoteFactory = new OldRemoteDeviceFactory();
+        Light legacyLight = oldRemoteFactory.createLight();
+        MusicSystem legacyMusic = oldRemoteFactory.createMusicSystem();
+
+        System.out.println("\nTesting legacy light control:");
+        legacyLight.on();
+        legacyLight.setBrightness(50);
+        legacyLight.off();
+
+        System.out.println("\nTesting legacy music system:");
+        legacyMusic.play("classic_hits");
+        legacyMusic.setVolume(60);
+        legacyMusic.stop();
+
+        System.out.println("\nAdapter successfully bridges old remote protocol with new system!");
+
+        System.out.println("\n" + "-".repeat(70));
         System.out.println("JSON EXPORT/IMPORT DEMONSTRATION");
         System.out.println("-".repeat(70));
 
@@ -186,6 +210,7 @@ public class Main {
         System.out.println("=    - Abstract Factory: WifiDeviceFactory creates device families  =");
         System.out.println("=    - Facade: HomeAutomationFacade orchestrates complex scenes     =");
         System.out.println("=    - Builder: HomeAutomationFacadeBuilder for fluent construction =");
+        System.out.println("=    - Adapter: OldRemoteControllerAdapter integrates legacy remote =");
         System.out.println("=                                                                    =");
         System.out.println("=  Total devices: 7 | Total decorators: 6 | Total scenes: 4         =");
         System.out.println("=  JSON export file: status.json                                     =");
