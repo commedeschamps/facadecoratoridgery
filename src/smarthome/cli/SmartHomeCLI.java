@@ -21,7 +21,7 @@ public class SmartHomeCLI {
         this.scanner = new Scanner(System.in);
         this.running = true;
 
-        // Choose controller and initialize devices
+        // choose controller and initialize devices
         SmartDeviceFactory factory = chooseController();
         initializeDevices(factory);
     }
