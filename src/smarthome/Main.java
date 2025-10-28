@@ -148,7 +148,7 @@ public class Main {
         System.out.println("-".repeat(50));
 
         System.out.println("\n1. RobotVacuum:");
-        vacuum.setPower(75);
+        vacuum.setCharging(50);
         vacuum.startCleaning("Kitchen");
 
         System.out.println("\n2. SmartMirror:");

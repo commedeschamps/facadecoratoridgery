@@ -440,7 +440,7 @@ public class SmartHomeCLI {
             System.out.println("├─────────────────────────────────────────────────┤");
             System.out.println("│ 1. Start cleaning                               │");
             System.out.println("│ 2. Stop cleaning                                │");
-            System.out.println("│ 3. Set power                                    │");
+            System.out.println("│ 3. Set charging                                 │");
             System.out.println("│ 0. Back                                         │");
             System.out.println("└─────────────────────────────────────────────────┘");
             System.out.print("Choice: ");
@@ -458,10 +458,10 @@ public class SmartHomeCLI {
                     vacuum.turnOff();
                     break;
                 case "3":
-                    System.out.print("Enter power (0-100): ");
+                    System.out.print("Vacuum set to charging...");
                     try {
-                        int power = Integer.parseInt(scanner.nextLine().trim());
-                        vacuum.setPower(power);
+                        int power = 50;
+                        vacuum.setCharging(power);
                     } catch (NumberFormatException e) {
                         System.out.println("Invalid number format");
                     }

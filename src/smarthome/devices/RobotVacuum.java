@@ -16,13 +16,20 @@ public class RobotVacuum implements Device {
     }
 
     public void startCleaning(String area) {
-        controller.powerOn(getName());
-        controller.send(getName(), "clean=\"" + area + "\"");
-        System.out.println("RobotVacuum started cleaning: " + area);
+        if (power <= 10) {
+            System.out.println("RobotVacuum battery low, docking...");
+            dock();
+        }
+        else {
+            controller.powerOn(getName());
+            controller.send(getName(), "clean=\"" + area + "\"");
+            System.out.println("RobotVacuum started cleaning: " + area);
+            power = Math.max(0, power - 10);
+        }
     }
 
-    public void setPower(int level) {
-        power = Math.max(0, Math.min(100, level));
+    public void setCharging(int level) {
+        power = Math.max(0, Math.min(100, power + level));
         controller.send(getName(), "power=" + power);
         System.out.println("RobotVacuum power set to " + power + "%");
     }
